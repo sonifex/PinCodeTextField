@@ -9,6 +9,8 @@
 import Foundation
 
 public protocol PinCodeTextFieldDelegate: class {
+    func textFieldShouldDeleteBackward(_ textField: PinCodeTextField) -> Bool // return false to block backward delete
+
     func textFieldShouldBeginEditing(_ textField: PinCodeTextField) -> Bool // return false to disallow editing.
     
     func textFieldDidBeginEditing(_ textField: PinCodeTextField) // became first responder

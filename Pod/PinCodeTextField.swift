@@ -334,8 +334,10 @@ extension PinCodeTextField: UIKeyInput {
     
     public func deleteBackward() {
         guard hasText else { return }
-        text?.removeLast()
-        delegate?.textFieldValueChanged(self)
+        if delegate?.textFieldShouldDeleteBackward(self) ?? true {
+            text?.removeLast()
+            delegate?.textFieldValueChanged(self)
+        }
     }
 }
 
